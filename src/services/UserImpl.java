@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class UserImpl implements IUser {
 
-    private dao.UserDaoImpl userDao;
+    private dao.UserDaoImpl userDao = new dao.UserDaoImpl();
 
     @Override
     public User findById(int id) {
@@ -23,7 +23,6 @@ public class UserImpl implements IUser {
             return null;
         } else {
             //DAO Data Access Object
-            userDao = new dao.UserDaoImpl();
             return userDao.findById(id);
         }
     }
@@ -40,6 +39,20 @@ public class UserImpl implements IUser {
         }else{
            return  userDao.deleteById(id);   
         }
+    }
+
+    @Override
+    public boolean updateById(int id, User user) {
+         if(id<=0){
+            return false;
+        }else{
+           return  userDao.updateById(id, user);
+        }
+    }
+
+    @Override
+    public boolean save(User user) {
+      return userDao.save(user);
     }
 
 }

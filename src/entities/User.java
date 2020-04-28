@@ -25,6 +25,15 @@ public class User implements Serializable {   //pairnei noumero ,etiketa ..san x
     public User() {
     }
 
+    public User(String firstName, String lastName, String tel, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.tel = tel;
+        this.email = email;
+    }
+    
+    
+
     public String getFirstName() {
         return firstName;
     }

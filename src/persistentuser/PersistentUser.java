@@ -29,26 +29,35 @@ public class PersistentUser {
       services.UserImpl userService = new services.UserImpl();   // den vazw panw import giati mia fora tha to xrhsimopoihsw
       //tha kanw ena object ap to opoio kalw methodous
       
-      User user = userService.findById(1);
-      if(user == null){
-          System.out.println("Oh!!! Something is not found!!");
-      }else{
-          System.out.println(user);
-      }
-      
-      List<User> users = userService.findAll();
+//      User user = userService.findById(1);
+//      if(user == null){
+//          System.out.println("Oh!!! Something is not found!!");
+//      }else{
+//          System.out.println(user);
+//      }
+//      
+//      List<User> users = userService.findAll();
 //      for(User user1 :users){
 //          System.out.println(user1);
 //      }
       
-      int i =1;
-      boolean delete = userService.deleteById(i);
-      if(delete)
-         System.out.println("User with id: "+i +" deleted successfully");
+//      int i =1;
+//      boolean delete = userService.deleteById(i);
+//      if(delete)
+//         System.out.println("User with id: "+i +" deleted successfully");
       
+      int j =2;
+      User user = new User("Vagelis","Tsivas","2319323","www@ggg.gr");
+      boolean update = userService.updateById(j, user);  
+      if(update){
+          System.out.println("User with id "+ j+ " was updated!!");
+      }
       
-     // userService.updateById(id, user);  //we don not know if id is valid ,if valid update by using User object
-      
+      User user2 = new User("Thomas","Dalton","210777711","aaa@mmm.com");
+      boolean save = userService.save(user2);
+      if(save){
+          System.out.println("User "+ user2.getFirstName() + " inserted!!");
+      }
       
       
       

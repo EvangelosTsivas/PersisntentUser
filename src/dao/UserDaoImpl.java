@@ -52,6 +52,31 @@ public class UserDaoImpl implements IUserDao {
            return false;
        }
     }
+
+    @Override
+    public boolean updateById(int id, User user) {
+         em.getTransaction().begin();    
+        User us = em.find(User.class, id); 
+       if(us != null){
+           us.setFirstName(user.getFirstName());
+           us.setLastName(user.getLastName());
+           us.setTel(user.getTel());
+           us.setEmail(user.getEmail());
+           em.getTransaction().commit();  
+           return true;
+       }else{
+           em.getTransaction().commit();  
+           return false;
+       }
+    }
+
+    @Override
+    public boolean save(User user) {
+       em.getTransaction().begin();
+       em.persist(user);
+       em.getTransaction().commit();
+       return true;
+    }
  
     
     
